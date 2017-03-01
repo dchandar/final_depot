@@ -34,7 +34,7 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
     if @order.save 
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
-    format.html { redirect_to store_url, prompt:'Thank you for your order.' }
+    format.html { redirect_to store_url, notice:'Thank you for your order.' }
     format.json { render :show, status: :created, location: @order } 
     else 
     format.html { render :new } 
